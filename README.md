@@ -12,7 +12,11 @@ This project implements a **3-tier architecture** with clear separation of conce
 2. **🔗 API Layer (FastAPI)** - RESTful service bridging frontend and AI backend  
 3. **🖥️ Frontend (SwiftUI)** - Native macOS application with interactive chessboard
 
-![Main Graph](images/main_graph.png) ![Sub Graph](images/sub_graph.png)
+### Main Graph (LangGraph)
+![Main Graph](images/main_graph.png)
+
+### Sub Graph (node `ai_step`)
+![Sub Graph](images/sub_graph.png)
 
 ## ✨ Key Features
 
