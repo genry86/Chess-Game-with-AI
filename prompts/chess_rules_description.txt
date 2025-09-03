@@ -1,0 +1,57 @@
+### Chess Overview
+Chess is a two-player strategy board game played on an 8×8 grid of alternating light and dark squares.  
+- Each player controls 16 pieces: one king, one queen, two rooks, two knights, two bishops, and eight pawns.  
+- One side is White, the other is Black. White always makes the first move.  
+- Players alternate moves, making exactly one move per turn.
+
+### Board Overview
+Board consist of 8×8 grid = 64 squares.
+Rows of that grid counted from 1 to 8 from bottom to top.
+Each row has 8 columns `a`, `b`, `c`, `d`, `e`, `f`, `g`, `h`.
+Every figure on the board has determined position described be 2 symbols, `[column][row]`. e.g. King `e1` which means that figure King is located on the 1th row, on the `e` position(5th one).
+Every move from one position to another, in UCI format, is described by 2-positions(source and target) or 4 symbols. e.g. Pawn `e2e4` means that figure pawn moved from position `e2` to `e4`.
+
+### Objectives
+The primary objective is to checkmate the opponent’s king — to place it under attack (“check”) with no legal move to escape.  
+Secondary objectives include gaining material advantage, controlling important squares (especially the center), and improving the activity and safety of pieces.  
+
+### Legal Moves
+A move is legal only if:  
+1. The move follows the movement rules of the chosen piece.  
+2. The destination square is either empty or occupied by an opponent’s piece (which is then captured).  
+3. After the move, the player’s own king is **not** left in check.  
+   - This means moves that expose your king to check are illegal.  
+
+### Piece Movement
+- **Pawn**: Moves forward 1 square; from its initial position, it may move 2 squares forward. Captures 1 square diagonally forward.  
+  - Special: *En Passant* (see below).  
+  - Special: *Promotion* upon reaching the farthest rank.  
+- **Rook**: Moves horizontally or vertically any number of squares.  
+- **Knight**: Moves in an “L” shape (2 squares in one direction, then 1 perpendicular). It can jump over pieces.  
+- **Bishop**: Moves diagonally any number of squares.  
+- **Queen**: Combines rook and bishop movement.  
+- **King**: Moves 1 square in any direction. Special move: *Castling* (see below).
+
+### Piece priority
+**King** is the most prioritized piece to defend. It you lose it then game is over, your lost. Always defend it as much as possible.
+**Queen** is the second most priority piece after **King**. The most strong piece and only one for each color.
+**Pawn** has the lowest priority. The most weak piece on the board. 8 pawns available for each color at game start.
+**Rook**, **Knight**, **Bishop** have the same priority between **Queen** and **Pawn**. You have 2 of each type at start game start.
+
+### Special Rules
+- **Castling**: The king and one rook move simultaneously.  
+  - Conditions:  
+    1. Neither the king nor the chosen rook has previously moved.  
+    2. All squares between king and rook are empty.  
+    3. The king is not in check.  
+    4. The king does not pass through a square under attack.  
+    5. The king does not end in check.  
+- **En Passant**: If a pawn advances two squares from its starting position and passes next to an enemy pawn, that enemy pawn may capture it as if it had moved only one square.  
+- **Promotion**: When a pawn reaches the opponent’s back rank, it must be promoted to one of: queen, rook, bishop, or knight (chosen by the player).  
+- **Check**: When a king is under attack, the player must make a move that removes the check.  
+- **Checkmate**: If the king is in check and there is no legal move to remove it, the game is over.  
+- **Draws**:  
+  - Stalemate (no legal moves but not in check).  
+  - Threefold repetition (same position appears 3 times with the same player to move).  
+  - Fifty-move rule (50 consecutive moves without a pawn move or capture).  
+  - Insufficient material (e.g., king vs king; king vs king + bishop; king vs king + knight).

@@ -1,0 +1,20 @@
+# Chess Game Backend Requirements
+# Core chess engine
+python-chess==1.999
+
+# Vector database for RAG
+chromadb==0.5.20
+
+# LangGraph for state management
+langgraph==0.2.48
+langchain-openai==0.2.10
+langchain==0.3.9
+
+# Web API framework
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+
+# Additional dependencies
+pydantic==2.10.3
+typing-extensions==4.12.2
+tenacity==9.0.0
