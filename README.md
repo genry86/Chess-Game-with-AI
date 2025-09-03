@@ -70,7 +70,14 @@ This project implements a **3-tier architecture** with clear separation of conce
    # - Local models via Ollama
    ```
 
-3. **Start the API service:**
+3. **⚠️ CRITICAL: Generate local RAG database for ai:**
+   ```bash
+   cd RAG
+   python parse_multiple_pgns.py
+   cd ../
+   ```
+
+4. **Start the API service:**
    ```bash
    python api_service.py
    ```

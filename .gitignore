@@ -16,3 +16,6 @@ __pycache__/
 # Test
 tests/*
 
+# Rag
+RAG/database/*
+
