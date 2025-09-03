@@ -1,0 +1,13 @@
+https://www.pgnmentor.com/files.html
+
+1. Magnus Carlsen
+— Five-time World Champion (classical), 5× rapid, 8× blitz; the highest classical rating in history (2882); record unbeaten streak and the longest continuous streak as world #1 since 2011. By overall results and dominance — the #1 of modern times.
+Carlsen.pgn
+
+2. Garry Kasparov
+— World Champion 1985–2000 (FIDE/classical), peak rating 2851 (historical maximum before Carlsen), world #1 for a total of 255 months, records for consecutive tournament victories (15). Leader of his generation and one of the greatest of all time.
+Karpov.pgn
+
+3. Anatoly Karpov
+— World Champion 1975–1985 and FIDE 1993–1999, over 160 first-place finishes in tournaments, peak rating 2780, world #1 for a total of 102 months — third place in history by this measure. A model of positional play and consistency at the top.
+Kasparov.pgn
