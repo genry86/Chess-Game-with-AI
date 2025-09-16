@@ -2,7 +2,7 @@
 Chess game logic implementation using LangGraph framework with RAG system for AI moves.
 This module defines the game state and implements a stateful graph for chess gameplay.
 """
- 
+import os.path
 from typing import Dict, Any, Literal
 import chess
 from dotenv import load_dotenv
@@ -10,9 +10,16 @@ from dotenv import load_dotenv
 from langchain_core.runnables import RunnableConfig, RunnableLambda
 from langgraph.graph import StateGraph, START, END
 from langgraph.prebuilt import create_react_agent
-from langgraph.checkpoint.memory import MemorySaver, InMemorySaver
 from langchain_openai import ChatOpenAI
 from langgraph.types import Command, interrupt
+
+# ram memory saver
+from langgraph.checkpoint.memory import MemorySaver, InMemorySaver
+# simple persistent memory saver
+import sqlite3
+from langgraph.checkpoint.sqlite import SqliteSaver
+# production persistent memory saver
+from langgraph.checkpoint.postgres import PostgresSaver
 
 from utility import (
     is_valid_fen,
@@ -24,7 +31,8 @@ from utility import (
     read_file,
     extract_final_move,
     load_rag,
-    display_graph
+    display_graph,
+    CheckpointerPickleSerializer
 )
 from tools import check_step_is_legal, get_new_board_state
 from states import GameState
@@ -41,6 +49,13 @@ def init_globals():
     global checkpointer, human_prompt, chess_rules
 
     checkpointer = InMemorySaver()
+    # if sqlite persistent storage needed
+    # conn = sqlite3.connect(FilePathConstants.CHECKPOINTER_DATABASE, check_same_thread=False)
+    # checkpointer = SqliteSaver(conn)
+    # if prod persistent storage needed
+    # with PostgresSaver.from_conn_string(FilePathConstants.DB_URI) as persistent_checkpointer:
+    #     persistent_checkpointer.setup()
+    #     checkpointer = persistent_checkpointer
 
     if human_prompt is None:
         human_prompt = read_file(FilePathConstants.PROMPT_AGENT_START)

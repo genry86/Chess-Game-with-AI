@@ -68,6 +68,8 @@ class FilePathConstants:
     # Data Directories
     DATA_DIRECTORY = "./data"
     DATABASE_DIRECTORY = "./database"
+    CHECKPOINTER_DATABASE = "./checkpointer/chess_checkpoints.db"
+    DB_URI = "postgresql://user:pass@host:5432/dbname"
 
 
 class DatabaseConstants:

@@ -10,6 +10,9 @@ from typing import Dict, List, Tuple
 import pathlib
 import re
 
+import pickle
+from langgraph.checkpoint.base import Checkpoint, SerializerProtocol
+
 load_dotenv()
 
 UCI_RE = re.compile(r'<final_move>\s*([a-h][1-8][a-h][1-8][qrbn]?|----)\s*</final_move>\s*\Z')
@@ -18,6 +21,13 @@ FILE_TO_IDX = {f: i for i, f in enumerate(FILES)}
 rag = None
 
 # --- Public ---
+
+class CheckpointerPickleSerializer(SerializerProtocol):
+    def dumps(self, obj: Checkpoint) -> bytes:
+        return pickle.dumps(obj)
+
+    def loads(self, data: bytes) -> Checkpoint:
+        return pickle.loads(data)
 
 def read_file(path):
     with open(path, "r") as f:

@@ -3,7 +3,7 @@ Chess game state definitions.
 Contains TypedDict classes for representing game state, AI state, and possible moves.
 """
 
-from typing import TypedDict, Annotated, List, Literal
+from typing import TypedDict, Annotated, List
 import operator
 
 class AIState(TypedDict):
